@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="example.task64.fragments.FavoriteFragment"
+    >
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:text="@string/no_favorite_images"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fav_rcView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="auto"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="280dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/white"
+        app:backgroundTint="@color/white"
+        android:src="@drawable/ic_delete"
+        android:contentDescription="@string/delete_all" />
+
+
+
+</FrameLayout>
