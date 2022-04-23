@@ -2,6 +2,7 @@ package example.task64.fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,7 @@ class FavoriteFragment : Fragment() {
     private lateinit var fragmentFavoriteBinding : FragmentFavoriteBinding
     lateinit var favAdapter : FavoriteAdapter
      var thumbImage : String? = null
-     var idImage :String? = null
+     var idImage : Int? = null
     private val favoriteFragViewModel: FavoriteFragViewModel by activityViewModels {
         FavoriteViewModelFactory((requireActivity().application as ImagesApplication).repository)
     }
@@ -47,7 +48,8 @@ class FavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
          thumbImage = arguments?.get("favorite_thumb").toString()
-         idImage =  arguments?.get("favorite_id").toString()
+         idImage =  arguments?.getInt("favorite_id")
+        Log.i("id_img" , idImage.toString())
          val newImage = idImage?.let { ImageModel(it.toInt(), " " , thumbImage!!) }
 
         newImage?.let { favoriteFragViewModel.insert(it) }

@@ -31,7 +31,7 @@ class FullFragment : Fragment() {
 
         val url = arguments?.get("url")
         val thumb = arguments?.get("thumb")
-        val id = arguments?.get("id")
+        val id = arguments?.getInt("id")
         Log.i("fullog", id.toString())
 
         Glide.with(requireContext())
@@ -44,7 +44,7 @@ class FullFragment : Fragment() {
 //            favoriteFragViewModel.imageId.value = id.toString().toInt()
             val bundle = Bundle()
             bundle.putString("favorite_thumb", thumb.toString())
-            bundle.putInt("favorite_id", id.toString().toInt())
+            bundle.putInt("favorite_id", id!!)
             val favoriteFragment = FavoriteFragment()
             favoriteFragment.arguments = bundle
             fragmentsTrans.transact(favoriteFragment)
