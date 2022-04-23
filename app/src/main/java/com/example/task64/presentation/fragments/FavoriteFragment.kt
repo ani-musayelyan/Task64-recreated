@@ -34,18 +34,17 @@ class FavoriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         fragmentFavoriteBinding = FragmentFavoriteBinding.inflate(inflater, container, false)
-
-        favAdapter = FavoriteAdapter(this.requireContext())
-        fragmentFavoriteBinding.favRcView.layoutManager = GridLayoutManager(this.requireContext(), 2)
-        fragmentFavoriteBinding.favRcView.adapter = favAdapter
-        fragmentFavoriteBinding.favRcView.setHasFixedSize(true)
-
         return fragmentFavoriteBinding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        favAdapter = FavoriteAdapter(this.requireContext())
+        fragmentFavoriteBinding.favRcView.layoutManager = GridLayoutManager(this.requireContext(), 2)
+        fragmentFavoriteBinding.favRcView.adapter = favAdapter
+        fragmentFavoriteBinding.favRcView.setHasFixedSize(true)
 
          thumbImage = arguments?.get("favorite_thumb").toString()
          idImage =  arguments?.getInt("favorite_id")
